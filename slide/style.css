@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 80%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    display: none;
+    padding: 40px;
+    height: 100%;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
+}
+
+.slide.active {
+    display: flex;
+    opacity: 1;
+}
+
+h1 {
+    color: #1e3c72;
+    font-size: 3em;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #1e3c72;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    border-bottom: 2px solid #2a5298;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.slide p {
+    margin: 20px 0;
+    font-size: 1.5em;
+    color: #34495e;
+    line-height: 1.6;
+}
+
+ul {
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 1.2em;
+    color: #7f8c8d;
+}
+
+ul li {
+    margin: 15px 0;
+    list-style-type: none; /* Remove os marcadores padrão */
+    padding-left: 40px;
+    position: relative;
+}
+
+ul li i {
+    position: absolute;
+    left: 0; /* Posição dos ícones */
+    color: #e74c3c; /* Cor dos ícones */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide.active {
+    animation: slideIn 0.5s forwards;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    p, ul {
+        font-size: 1em;
+    }
+}
+
+/* Efeito de hover para slides */
+.slide:hover {
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
